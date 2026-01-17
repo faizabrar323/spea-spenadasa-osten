@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSTEN 26 - Aspirasi Siswa SMP Negeri 10 Magelang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #26a269;
+            --accent: #e5a50a;
+            --light: #f6f5f4;
+            --dark: #241f31;
+            --danger: #c01c28;
+            --success: #2ec27e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Navbar */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        /* Tombol Admin di Navbar */
+        .nav-admin-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            position: relative;
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 95, 180, 0.9), rgba(38, 162, 105, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            background-color: #f0b429;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0d4a9e;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #a51a1a;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #26a269;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            min-height: 80vh;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Homepage Content */
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* STRUKTUR ORGANISASI YANG LEBIH MENARIK */
+        .organization-structure {
+            max-width: 1000px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .org-level-1 {
+            margin-bottom: 80px;
+        }
+
+        .org-member {
+            background: white;
+            border-radius: 15px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 220px;
+            position: relative;
+            transition: all 0.3s ease;
+            z-index: 1;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+        }
+
+        .org-member:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .org-member.ketua {
+            width: 250px;
+            padding: 30px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .org-member.ketua .member-name {
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .org-member.ketua .member-role {
+            color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .org-member.ketua .member-avatar {
+            border: 4px solid white;
+            background: white;
+            color: var(--primary);
+            width: 100px;
+            height: 100px;
+            font-size: 2.5rem;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .form-container, .admin-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
+        }
+
+        .category-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .category-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .category-option input[type="radio"] {
+            display: none;
+        }
+
+        .category-option label {
+            padding: 10px 20px;
+            background-color: #f0f7ff;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-option input[type="radio"]:checked + label {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .category-option label:hover {
+            border-color: var(--primary);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+
+        /* Chat Login Form Styling */
+        .chat-login-form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-login-form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .chat-login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .chat-login-form .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+        }
+
+        /* Chat Global WhatsApp Style */
+        .chat-whatsapp-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .chat-title h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .chat-title p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages-area {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            position: relative;
+            word-wrap: break-word;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .message-bubble.sent {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-bubble.received {
+            align-self: flex-start;
+            background: white;
+            color: var(--dark);
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-sender {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            text-align: right;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        .message-bubble.received .message-time {
+            text-align: left;
+        }
+
+        /* Tombol Hapus Pesan */
+        .message-actions {
+            margin-top: 5px;
+            display: flex;
+            gap: 5px;
+            justify-content: flex-end;
+        }
+
+        .message-action-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            cursor: pointer;
+            padding: 2px 8px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .message-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .message-bubble.received .message-action-btn {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .message-bubble.received .message-action-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--dark);
+        }
+
+        .chat-input-area {
+            padding: 15px 20px;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: border 0.3s;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .user-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 10px 0 20px;
+        }
+
+        /* Dashboard Admin */
+        .dashboard-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 30px;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* TENTANG KAMI, ALUR, KONTAK SECTION */
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 40px;
+            padding-right: 0;
+        }
+
+        .timeline-item-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary);
+        }
+
+        .timeline-item:nth-child(even) .timeline-item-content {
+            border-left: none;
+            border-right: 5px solid var(--secondary);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -12px;
+            top: 20px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--primary);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+            right: auto;
+            background: var(--secondary);
+            box-shadow: 0 0 0 4px var(--secondary);
+        }
+
+        /* Visi Misi Box */
+        .visi-box {
+            background: linear-gradient(135deg, rgba(26, 95, 180, 0.1), rgba(38, 162, 105, 0.1));
+            border-left: 5px solid var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .visi-box h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .misi-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .misi-box h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .misi-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .misi-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .misi-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .org-level {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .chat-whatsapp-container {
+                height: 500px;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-dot {
+                left: 18px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 18px;
+            }
+            
+            .timeline-item-content {
+                border-left: 5px solid var(--primary);
+                border-right: none;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-item-content {
+                border-left: 5px solid var(--secondary);
+                border-right: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                order: 3;
+            }
+            
+            .nav-admin-btn {
+                order: 2;
+                margin-left: auto;
+                margin-right: 15px;
+            }
+            
+            .admin-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+            
+            .logo-container {
+                order: 1;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .nav-links a {
+                padding: 12px 15px;
+                border-radius: 8px;
+                width: 100%;
+                display: block;
+                font-size: 1.1rem;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(26, 95, 180, 0.05);
+            }
+            
+            .nav-links a.active::after {
+                display: none;
+            }
+            
+            .nav-links a.active {
+                background-color: rgba(26, 95, 180, 0.1);
+                border-left: 4px solid var(--primary);
+            }
+            
+            .mobile-menu-overlay.active {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .org-member {
+                width: 180px;
+            }
+            
+            .org-member.ketua {
+                width: 200px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .visi-box, .misi-box {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-container, .admin-form-container, .chat-login-form {
+                padding: 25px;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .org-member {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .fab {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+                bottom: 25px;
+                right: 25px;
+            }
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            max-width: 350px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background-color: var(--success);
+        }
+
+        .toast.error {
+            background-color: var(--danger);
+        }
+
+        .toast.info {
+            background-color: var(--primary);
+        }
+
+        .toast.warning {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <div class="logo">O26</div>
+                    <div class="logo-text">
+                        <h1>OSTEN 26</h1>
+                        <p>SMP Negeri 10 Magelang</p>
+                    </div>
+                </div>
+                
+                <!-- Tombol Admin di Navbar -->
+                <div class="nav-admin-btn">
+                    <button class="admin-btn" id="adminBtn" title="Admin Dashboard">026</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Mobile Menu Overlay -->
+                <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+                
+                <!-- Nav Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active nav-link">Beranda</a></li>
+                    <li><a href="#aspirasi" class="nav-link">Kirim Aspirasi</a></li>
+                    <li><a href="#tentang" class="nav-link">Tentang Kami</a></li>
+                    <li><a href="#alur" class="nav-link">Alur Aspirasi</a></li>
+                    <li><a href="#chat" class="nav-link">Chat Global</a></li>
+                    <li><a href="#kontak" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating Action Button -->
+    <div class="fab" id="fab" title="Kirim Aspirasi">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="container">
+                    <h1>OSTEN 26 - SMP Negeri 10 Magelang</h1>
+                    <p>Website ini digunakan sebagai sarana penyaluran aspirasi, saran, dan kritik siswa secara online.</p>
+                    <a href="#aspirasi" class="btn btn-primary">Kirim Aspirasi Sekarang</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tujuan Website</h2>
+                    <p>Melalui platform ini, kami berkomitmen untuk meningkatkan partisipasi siswa dalam pembangunan sekolah</p>
+                </div>
+                
+                <div class="home-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Menampung Aspirasi Siswa</h3>
+                        <p>Memberikan ruang bagi setiap siswa untuk menyampaikan pemikiran, ide, dan kritik membangun secara terbuka dan terstruktur.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Meningkatkan Komunikasi</h3>
+                        <p>Membangun jembatan komunikasi yang efektif antara OSIS, siswa, dan pihak sekolah untuk menciptakan sinergi positif.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>Mewujudkan Sekolah Lebih Baik</h3>
+                        <p>Bersama-sama mengimplementasikan ide-ide kreatif untuk menciptakan lingkungan belajar yang lebih kondusif dan menyenangkan.</p>
+                    </div>
+                </div>
+                
+                <!-- STRUKTUR ORGANISASI YANG LEBIH MENARIK -->
+                <div class="section-title" style="margin-top: 80px;">
+                    <h2>Struktur Organisasi OSIS Periode 2026/2027</h2>
+                    <p>Susunan Pengurus OSIS Periode 2026/2027</p>
+                </div>
+                
+                <div class="organization-structure">
+                    <!-- Level 1: Ketua OSIS -->
+                    <div class="org-level org-level-1">
+                        <div class="org-member ketua">
+                            <div class="member-avatar">AF</div>
+                            <div class="member-name">Abrar Faiz Pratama</div>
+                            <div class="member-role">Ketua OSIS</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Level 2: Wakil Ketua -->
+                    <div class="org-level">
+                        <div class="org-member">
+                            <div class="member-avatar">ZM</div>
+                            <div class="member-name">Zulfa Maulida</div>
+                            <div class="member-role">Wakil Ketua</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Level 3: Sekretaris dan Bendahara -->
+                    <div class="org-level" style="gap: 60px;">
+                        <div class="org-member">
+                            <div class="member-avatar">RS</div>
+                            <div class="member-name">Rafandra Sabian Sulistia</div>
+                            <div class="member-role">Sekretaris 1</div>
+                        </div>
+                        
+                        <div class="org-member">
+                            <div class="member-avatar">KA</div>
+                            <div class="member-name">Khairunnisa Anindita Rezki Cayadewi</div>
+                            <div class="member-role">Sekretaris 2</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Level 4: Bendahara -->
+                    <div class="org-level" style="gap: 60px;">
+                        <div class="org-member">
+                            <div class="member-avatar">KP</div>
+                            <div class="member-name">Khansa Febrilya Putri Prasetya</div>
+                            <div class="member-role">Bendahara 1</div>
+                        </div>
+                        
+                        <div class="org-member">
+                            <div class="member-avatar">ZK</div>
+                            <div class="member-name">Zaskia Syarifatul Khusna</div>
+                            <div class="member-role">Bendahara 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aspiration Form Section -->
+        <section id="aspirasi" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kirim Aspirasi</h2>
+                    <p>Sampaikan saran, kritik, atau aspirasi Anda untuk kemajuan sekolah kita bersama</p>
+                </div>
+                
+                <div class="form-container">
+                    <form id="aspirationForm">
+                        <div class="form-group">
+                            <label for="nama">Nama (opsional)</label>
+                            <input type="text" id="nama" class="form-control" placeholder="Masukkan nama Anda">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="kelas">Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <!-- Kelas 7A-G -->
+                                <option value="7A">Kelas 7A</option>
+                                <option value="7B">Kelas 7B</option>
+                                <option value="7C">Kelas 7C</option>
+                                <option value="7D">Kelas 7D</option>
+                                <option value="7E">Kelas 7E</option>
+                                <option value="7F">Kelas 7F</option>
+                                <option value="7G">Kelas 7G</option>
+                                <!-- Kelas 8A-G -->
+                                <option value="8A">Kelas 8A</option>
+                                <option value="8B">Kelas 8B</option>
+                                <option value="8C">Kelas 8C</option>
+                                <option value="8D">Kelas 8D</option>
+                                <option value="8E">Kelas 8E</option>
+                                <option value="8F">Kelas 8F</option>
+                                <option value="8G">Kelas 8G</option>
+                                <!-- Kelas 9A-G -->
+                                <option value="9A">Kelas 9A</option>
+                                <option value="9B">Kelas 9B</option>
+                                <option value="9C">Kelas 9C</option>
+                                <option value="9D">Kelas 9D</option>
+                                <option value="9E">Kelas 9E</option>
+                                <option value="9F">Kelas 9F</option>
+                                <option value="9G">Kelas 9G</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kategori Aspirasi *</label>
+                            <div class="category-options">
+                                <div class="category-option">
+                                    <input type="radio" id="fasilitas" name="kategori" value="Fasilitas" required>
+                                    <label for="fasilitas">Fasilitas</label>
+                                </div>
+                                <div class="category-option">
+                                    <input type="radio" id="kegiatan" name="kategori" value="Kegiatan" required>
+                                    <label for="kegiatan">Kegiatan</label>
+                                </div>
+                                <div class="category-option">
+                                    <input type="radio" id="pembelajaran" name="kategori" value="Pembelajaran" required>
+                                    <label for="pembelajaran">Pembelajaran</label>
+                                </div>
+                                <div class="category-option">
+                                    <input type="radio" id="kebersihan" name="kategori" value="Kebersihan" required>
+                                    <label for="kebersihan">Kebersihan</label>
+                                </div>
+                                <div class="category-option">
+                                    <input type="radio" id="lainnya" name="kategori" value="Lainnya" required>
+                                    <label for="lainnya">Lainnya</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pesan">Pesan Aspirasi *</label>
+                            <textarea id="pesan" class="form-control" rows="6" placeholder="Tulis aspirasi, saran, atau kritik Anda di sini..." required></textarea>
+                            <small id="charCount">0/500 karakter</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="anonim">
+                                <label for="anonim">Kirim sebagai anonim (nama tidak akan ditampilkan)</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Kirim Aspirasi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tentang Kami Section -->
+        <section id="tentang" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tentang Kami</h2>
+                    <p>Kenali lebih dekat tentang OSIS SMP Negeri 10 Magelang Periode 2026/2027</p>
+                </div>
+                
+                <div class="content-section">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div class="logo" style="margin: 0 auto 20px; width: 100px; height: 100px; font-size: 2rem;">
+                            O26
+                        </div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">OSTEN 26</h3>
+                        <p style="color: #666; font-size: 1.1rem;">OSIS SMP Negeri 10 Magelang Periode 2026/2027</p>
+                    </div>
+                    
+                    <!-- VISI -->
+                    <div class="visi-box">
+                        <h4>Visi OSIS SMP Negeri 10 Magelang</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.8; font-style: italic;">
+                            "Mewujudkan OSIS SMPN 10 Magelang yang komunikatif, responsif, dan terbuka sebagai pilar yang kuat dan jembatan aspirasi seluruh siswa kepada guru dan sekolah guna menumbuhkan sikap kepemimpinan, partisipasi aktif dan membangun lingkungan yang harmonis, inovatif, kreatif, serta mendukung setiap siswa untuk berprestasi sesuai potensinya."
+                        </p>
+                    </div>
+                    
+                    <!-- MISI -->
+                    <div class="misi-box">
+                        <h4>Misi OSIS SMP Negeri 10 Magelang</h4>
+                        
+                        <div class="misi-item">
+                            <div class="misi-number">1</div>
+                            <div>
+                                <strong>Melanjutkan kinerja OSIS yang sudah terlaksana dan belum terlaksana</strong>
+                                <p style="margin-top: 5px; color: #666;">Memastikan program OSIS berjalan berkelanjutan dan menyelesaikan program yang belum terlaksana.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="misi-item">
+                            <div class="misi-number">2</div>
+                            <div>
+                                <strong>Menumbuhkan minat siswa siswi SMPN 10 Magelang dalam budaya membaca</strong>
+                                <p style="margin-top: 5px; color: #666;">Menggalakkan program literasi untuk mewujudkan pelajar yang berwawasan luas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="misi-item">
+                            <div class="misi-number">3</div>
+                            <div>
+                                <strong>Menciptakan lingkungan sekolah yang religius dan berakhlak mulia</strong>
+                                <p style="margin-top: 5px; color: #666;">Mengadakan kegiatan keagamaan dan pembinaan akhlak untuk membentuk karakter siswa yang baik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="misi-item">
+                            <div class="misi-number">4</div>
+                            <div>
+                                <strong>Menciptakan lingkungan yang sehat dan bersih serta mengurangi sampah plastik dan kertas</strong>
+                                <p style="margin-top: 5px; color: #666;">Melaksanakan program kebersihan rutin dan kampanye pengurangan sampah plastik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="misi-item">
+                            <div class="misi-number">5</div>
+                            <div>
+                                <strong>Mewujudkan OSIS SMPN 10 Magelang yang komunikatif, responsif, dan terbuka</strong>
+                                <p style="margin-top: 5px; color: #666;">Melalui rapat koordinasi dengan pengurus OSIS secara rutin untuk meningkatkan transparansi dan komunikasi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alur Aspirasi Section -->
+        <section id="alur" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Alur Pengajuan Aspirasi</h2>
+                    <p>Proses penyaluran aspirasi dari siswa hingga ditindaklanjuti oleh pihak sekolah</p>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-item-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">1. Pengisian Form Aspirasi</h3>
+                            <p>Siswa mengisi form aspirasi di website dengan data yang lengkap dan jelas.</p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Isi nama dan kelas (bisa anonim)</li>
+                                <li>Pilih kategori aspirasi</li>
+                                <li>Tulis aspirasi secara detail</li>
+                                <li>Kirim form</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-item-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">2. Verifikasi oleh OSIS</h3>
+                            <p>Pengurus OSIS memverifikasi dan mengkategorikan aspirasi yang masuk.</p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Cek kelengkapan data</li>
+                                <li>Filter konten tidak pantas</li>
+                                <li>Kategorikan berdasarkan jenis</li>
+                                <li>Prioritaskan urgensi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-item-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">3. Disposisi ke Pihak Terkait</h3>
+                            <p>Aspirasi didistribusikan ke pihak yang berwenang sesuai kategorinya.</p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Kepala Sekolah</li>
+                                <li>Wakil Kepala Sekolah</li>
+                                <li>Guru dan Wali Kelas</li>
+                                <li>Bidang Sarana Prasarana</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-item-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">4. Tindak Lanjut</h3>
+                            <p>Pihak terkait menindaklanjuti aspirasi dan memberikan respons.</p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Analisis kelayakan</li>
+                                <li>Rencana tindakan</li>
+                                <li>Jadwal implementasi</li>
+                                <li>Anggaran jika diperlukan</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-item-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">5. Monitoring & Evaluasi</h3>
+                            <p>OSIS memonitor perkembangan dan memberikan laporan kepada siswa.</p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Update status aspirasi</li>
+                                <li>Laporan perkembangan</li>
+                                <li>Evaluasi hasil</li>
+                                <li>Feedback ke siswa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Global Section (WhatsApp Style) -->
+        <section id="chat" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Chat Global</h2>
+                    <p>Chat seperti WhatsApp untuk seluruh siswa SMPN 10 Magelang</p>
+                </div>
+                
+                <!-- Login Form untuk Chat -->
+                <div id="chatLoginContainer">
+                    <div class="chat-login-form">
+                        <h3 style="text-align: center; margin-bottom: 10px;">Masuk ke Chat Global</h3>
+                        <p style="text-align: center; margin-bottom: 30px; color: #666;">Masukkan nama dan kelas Anda untuk bergabung dalam obrolan</p>
+                        
+                        <form id="chatLoginForm">
+                            <div class="form-group">
+                                <label for="chatNama">Nama Lengkap *</label>
+                                <input type="text" id="chatNama" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="chatKelas">Kelas *</label>
+                                <select id="chatKelas" class="form-control" required>
+                                    <option value="">Pilih Kelas</option>
+                                    <!-- Kelas 7A-G -->
+                                    <option value="7A">Kelas 7A</option>
+                                    <option value="7B">Kelas 7B</option>
+                                    <option value="7C">Kelas 7C</option>
+                                    <option value="7D">Kelas 7D</option>
+                                    <option value="7E">Kelas 7E</option>
+                                    <option value="7F">Kelas 7F</option>
+                                    <option value="7G">Kelas 7G</option>
+                                    <!-- Kelas 8A-G -->
+                                    <option value="8A">Kelas 8A</option>
+                                    <option value="8B">Kelas 8B</option>
+                                    <option value="8C">Kelas 8C</option>
+                                    <option value="8D">Kelas 8D</option>
+                                    <option value="8E">Kelas 8E</option>
+                                    <option value="8F">Kelas 8F</option>
+                                    <option value="8G">Kelas 8G</option>
+                                    <!-- Kelas 9A-G -->
+                                    <option value="9A">Kelas 9A</option>
+                                    <option value="9B">Kelas 9B</option>
+                                    <option value="9C">Kelas 9C</option>
+                                    <option value="9D">Kelas 9D</option>
+                                    <option value="9E">Kelas 9E</option>
+                                    <option value="9F">Kelas 9F</option>
+                                    <option value="9G">Kelas 9G</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                                <i class="fas fa-sign-in-alt"></i> Masuk ke Chat
+                            </button>
+                            
+                            <div style="margin-top: 25px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; font-size: 0.9rem;">
+                                <p><strong>Perhatian:</strong></p>
+                                <p>• Chat ini bisa digunakan dari berbagai perangkat sekaligus</p>
+                                <p>• Pesan akan tampil real-time di semua perangkat</p>
+                                <p>• Gunakan bahasa yang sopan dan santun</p>
+                                <p>• Dilarang mengirim konten yang tidak pantas</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Chat Interface (WhatsApp Style) -->
+                <div id="chatContainer" style="display: none;">
+                    <div class="chat-whatsapp-container">
+                        <!-- Header Chat -->
+                        <div class="chat-header">
+                            <div class="chat-header-info">
+                                <div class="chat-avatar">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="chat-title">
+                                    <h3>Chat Global SMPN 10 Magelang</h3>
+                                    <p id="onlineCount">0 pengguna online</p>
+                                </div>
+                            </div>
+                            <div class="user-badge" id="currentUserBadge">
+                                Anda: <span id="currentUserName"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Area Pesan -->
+                        <div class="chat-messages-area" id="messagesContainer">
+                            <!-- Pesan akan dimuat di sini -->
+                        </div>
+                        
+                        <!-- Input Pesan -->
+                        <div class="chat-input-area">
+                            <input type="text" id="chatMessageInput" class="chat-input" placeholder="Ketik pesan Anda..." maxlength="500">
+                            <button id="sendMessageBtn" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center; color: #666; font-size: 0.9rem;">
+                        <p><i class="fas fa-info-circle"></i> Chat ini menggunakan teknologi real-time. Pesan akan langsung terkirim ke semua pengguna yang online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="kontak" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kontak Kami</h2>
+                    <p>Hubungi pengurus OSIS jika Anda memiliki pertanyaan atau masukan</p>
+                </div>
+                
+                <div class="content-section">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                        <div style="text-align: center; padding: 30px; background: #f0f7ff; border-radius: 10px;">
+                            <div style="width: 70px; height: 70px; margin: 0 auto 20px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem;">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Sekolah</h4>
+                            <p>SMP Negeri 10 Magelang</p>
+                            <p>Jl. Soekarno Hatta No.2, Rejowinangun Utara</p>
+                            <p>Kec. Magelang Tengah, Kota Magelang</p>
+                            <p>Jawa Tengah 56127</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 30px; background: #f0f7ff; border-radius: 10px;">
+                            <div style="width: 70px; height: 70px; margin: 0 auto 20px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem;">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Pembina OSIS</h4>
+                            <p>Bapak/Ibu Guru Pembina OSIS</p>
+                            <p>SMP Negeri 10 Magelang</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 30px; background: #f0f7ff; border-radius: 10px;">
+                            <div style="width: 70px; height: 70px; margin: 0 auto 20px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Pengurus OSIS</h4>
+                            <p>OSTEN 26 Periode 2026/2027</p>
+                            <p>SMP Negeri 10 Magelang</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px; text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 20px;">Ikuti Kami di Instagram</h4>
+                        <a href="https://www.instagram.com/osispenadasa?igsh=bnVjb3FrMzVsM2I=" 
+                           target="_blank" 
+                           style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); 
+                                  color: white; border-radius: 10px; text-decoration: none; transition: transform 0.3s; font-size: 1.1rem; font-weight: 600;">
+                            <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                            <span>@osispenadasa</span>
+                        </a>
+                        <p style="margin-top: 15px; color: #666;">Follow Instagram resmi OSIS SMP Negeri 10 Magelang untuk update terbaru</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Login Section -->
+        <section id="admin" class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Admin Login</h2>
+                    <p>Halaman login untuk pengurus OSIS</p>
+                </div>
+                
+                <div class="form-container" style="max-width: 500px;">
+                    <form id="adminLoginForm">
+                        <div class="form-group">
+                            <label for="username">Username *</label>
+                            <input type="text" id="username" class="form-control" placeholder="Masukkan username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="loginBtn">
+                            <i class="fas fa-sign-in-alt"></i> Login sebagai Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard Section -->
+        <section id="dashboard" class="page-section">
+            <div class="container">
+                <div class="dashboard-container">
+                    <!-- Dashboard Header -->
+                    <div class="dashboard-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h2><i class="fas fa-tachometer-alt"></i> Dashboard Admin OSIS</h2>
+                                <p>Panel administrasi untuk pengurus OSIS</p>
+                            </div>
+                            <div>
+                                <span id="welcomeUser" style="margin-right: 15px; font-weight: 500;"></span>
+                                <button id="logoutBtn" class="btn btn-danger">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Stats -->
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalAspirasi">0</div>
+                            <h4>Aspirasi Masuk</h4>
+                            <p>Total aspirasi yang diterima</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-number" id="processedAspirasi">0</div>
+                            <h4>Diproses</h4>
+                            <p>Aspirasi sedang diproses</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-number" id="completedAspirasi">0</div>
+                            <h4>Selesai</h4>
+                            <p>Aspirasi telah ditindaklanjuti</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-number" id="activeUsers">0</div>
+                            <h4>Pengguna Chat</h4>
+                            <p>Pengguna aktif di chat global</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Messages -->
+                    <div style="padding: 30px;">
+                        <h3 style="margin-bottom: 20px; color: var(--primary);">Pesan Terbaru dari Chat Global</h3>
+                        <div id="recentMessages" style="background: #f8f9fa; padding: 20px; border-radius: 10px; max-height: 300px; overflow-y: auto;">
+                            <p style="text-align: center; color: #666;">Belum ada pesan di chat global</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==================== FIXED: DATA MANAGEMENT ====================
+        // Data akun admin yang valid
+        const validUsers = [
+            { username: "Abrar Faiz Pratama", password: "AbrarFaiz" },
+            { username: "Rafandra Sabian Sulistia", password: "RafandraSabian" }
+        ];
+
+        // Simpan data di localStorage untuk simulasi "database"
+        // Data aspirasi
+        let aspirations = JSON.parse(localStorage.getItem('aspirations')) || [];
+        
+        // Data chat - MENGGUNAKAN SHARED LOCALSTORAGE UNTUK SIMULASI CHAT REALTIME
+        let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+        let chatUsers = JSON.parse(localStorage.getItem('chatUsers')) || [];
+        let currentChatUser = JSON.parse(localStorage.getItem('currentChatUser')) || null;
+        
+        // Status login admin
+        let isLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true' || false;
+        let currentUser = localStorage.getItem('currentAdminUser') || null;
+
+        // ==================== FIXED: MOBILE MENU ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const navLinks = document.getElementById('navLinks');
+        const adminBtn = document.getElementById('adminBtn');
+        
+        // Fungsi untuk toggle mobile menu
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        mobileMenuOverlay.addEventListener('click', function() {
+            if (navLinks.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+        
+        navLinks.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-link')) {
+                if (navLinks.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+                
+                updateActiveNav(e.target.getAttribute('href').substring(1));
+            }
+        });
+        
+        // ==================== TOMBOL ADMIN ====================
+        adminBtn.addEventListener('click', function() {
+            if (isLoggedIn && currentUser) {
+                showSection('dashboard');
+            } else {
+                showSection('admin');
+            }
+            if (navLinks.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // ==================== NAVIGASI HALAMAN ====================
+        const navItems = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('.page-section');
+        
+        function updateActiveNav(sectionId) {
+            navItems.forEach(navItem => {
+                navItem.classList.remove('active');
+                if (navItem.getAttribute('href') === `#${sectionId}`) {
+                    navItem.classList.add('active');
+                }
+            });
+        }
+        
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            updateActiveNav(sectionId);
+            
+            if (sectionId === 'dashboard') {
+                updateDashboard();
+            }
+            
+            if (sectionId === 'chat') {
+                setupChat();
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                if (document.getElementById(targetId)) {
+                    showSection(targetId);
+                } else {
+                    showSection('home');
+                }
+            });
+        });
+        
+        // Floating Action Button
+        const fab = document.getElementById('fab');
+        fab.addEventListener('click', () => {
+            showSection('aspirasi');
+        });
+        
+        // ==================== FORM ASPIRASI ====================
+        const aspirationForm = document.getElementById('aspirationForm');
+        const charCount = document.getElementById('charCount');
+        const pesanInput = document.getElementById('pesan');
+        
+        if (pesanInput) {
+            pesanInput.addEventListener('input', function() {
+                const count = this.value.length;
+                const maxLength = 500;
+                charCount.textContent = `${count}/${maxLength} karakter`;
+                
+                if (count > maxLength) {
+                    charCount.style.color = 'var(--danger)';
+                } else {
+                    charCount.style.color = 'var(--dark)';
+                }
+            });
+        }
+        
+        const badWords = ['bodoh', 'goblok', 'tolol', 'bangsat', 'anjing', 'kontol'];
+        
+        if (aspirationForm) {
+            aspirationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nama = document.getElementById('nama').value;
+                const kelas = document.getElementById('kelas').value;
+                const kategori = document.querySelector('input[name="kategori"]:checked').value;
+                const pesan = document.getElementById('pesan').value;
+                const anonim = document.getElementById('anonim').checked;
+                
+                if (!kelas || !kategori || !pesan) {
+                    showToast('Harap isi semua bidang yang wajib diisi!', 'error');
+                    return;
+                }
+                
+                let containsBadWord = false;
+                badWords.forEach(word => {
+                    if (pesan.toLowerCase().includes(word)) {
+                        containsBadWord = true;
+                    }
+                });
+                
+                if (containsBadWord) {
+                    showToast('Pesan mengandung kata-kata yang tidak pantas. Harap perbaiki pesan Anda.', 'error');
+                    return;
+                }
+                
+                if (pesan.length > 500) {
+                    showToast('Pesan terlalu panjang. Maksimal 500 karakter.', 'error');
+                    return;
+                }
+                
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="spinner"></span> Mengirim...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    const newAspiration = {
+                        id: Date.now(),
+                        nama: anonim ? 'Anonim' : nama,
+                        kelas,
+                        kategori,
+                        pesan,
+                        anonim,
+                        tanggal: new Date().toLocaleDateString('id-ID'),
+                        waktu: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
+                        status: 'Baru'
+                    };
+                    
+                    aspirations.push(newAspiration);
+                    localStorage.setItem('aspirations', JSON.stringify(aspirations));
+                    
+                    aspirationForm.reset();
+                    charCount.textContent = '0/500 karakter';
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    showToast('Aspirasi berhasil dikirim!', 'success');
+                    
+                    if (isLoggedIn && currentUser) {
+                        updateDashboard();
+                    }
+                }, 1500);
+            });
+        }
+        
+        // ==================== ADMIN LOGIN ====================
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        
+        if (adminLoginForm) {
+            adminLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                const loginBtn = document.getElementById('loginBtn');
+                const originalText = loginBtn.innerHTML;
+                loginBtn.innerHTML = '<span class="spinner"></span> Memproses...';
+                loginBtn.disabled = true;
+                
+                setTimeout(() => {
+                    const validUser = validUsers.find(user => 
+                        user.username === username && user.password === password
+                    );
+                    
+                    if (validUser) {
+                        isLoggedIn = true;
+                        currentUser = validUser.username;
+                        localStorage.setItem('isAdminLoggedIn', 'true');
+                        localStorage.setItem('currentAdminUser', currentUser);
+                        
+                        adminLoginForm.reset();
+                        showSection('dashboard');
+                        showToast('Login berhasil!', 'success');
+                    } else {
+                        showToast('Username atau password salah!', 'error');
+                    }
+                    
+                    loginBtn.innerHTML = originalText;
+                    loginBtn.disabled = false;
+                }, 1000);
+            });
+        }
+        
+        // ==================== ADMIN LOGOUT ====================
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                isLoggedIn = false;
+                currentUser = null;
+                localStorage.removeItem('isAdminLoggedIn');
+                localStorage.removeItem('currentAdminUser');
+                
+                showSection('admin');
+                showToast('Anda telah logout dari admin.', 'info');
+            });
+        }
+        
+        // ==================== ADMIN DASHBOARD ====================
+        function updateDashboard() {
+            if (!isLoggedIn) return;
+            
+            document.getElementById('welcomeUser').textContent = `Halo, ${currentUser}`;
+            
+            const totalAspirations = aspirations.length;
+            const processedAspirations = aspirations.filter(a => a.status === 'Diproses').length;
+            const completedAspirations = aspirations.filter(a => a.status === 'Selesai').length;
+            
+            document.getElementById('totalAspirasi').textContent = totalAspirations;
+            document.getElementById('processedAspirasi').textContent = processedAspirations;
+            document.getElementById('completedAspirasi').textContent = completedAspirations;
+            
+            const activeChatUsers = chatUsers.filter(user => {
+                const now = Date.now();
+                return (now - user.lastActive) < 5 * 60 * 1000;
+            }).length;
+            document.getElementById('activeUsers').textContent = activeChatUsers;
+            
+            updateRecentMessages();
+        }
+        
+        function updateRecentMessages() {
+            const recentMessagesContainer = document.getElementById('recentMessages');
+            const recentMessages = chatMessages.slice(-10).reverse();
+            
+            if (recentMessages.length === 0) {
+                recentMessagesContainer.innerHTML = '<p style="text-align: center; color: #666;">Belum ada pesan di chat global</p>';
+                return;
+            }
+            
+            let messagesHTML = '';
+            recentMessages.forEach(message => {
+                const time = new Date(message.timestamp).toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                messagesHTML += `
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <strong style="color: var(--primary);">${message.nama} (${message.kelas})</strong>
+                            <small style="color: #666;">${time}</small>
+                        </div>
+                        <div>${message.content}</div>
+                    </div>
+                `;
+            });
+            
+            recentMessagesContainer.innerHTML = messagesHTML;
+        }
+        
+        // ==================== CHAT SYSTEM ====================
+        // Setup chat interface - FIXED: Chat global sekarang bisa digunakan antar pengguna
+        function setupChat() {
+            const chatLoginContainer = document.getElementById('chatLoginContainer');
+            const chatContainer = document.getElementById('chatContainer');
+            
+            if (currentChatUser) {
+                chatLoginContainer.style.display = 'none';
+                chatContainer.style.display = 'block';
+                
+                document.getElementById('currentUserName').textContent = `${currentChatUser.nama} (${currentChatUser.kelas})`;
+                
+                loadChatMessages();
+                updateOnlineUsersCount();
+                startChatAutoRefresh();
+            } else {
+                chatLoginContainer.style.display = 'block';
+                chatContainer.style.display = 'none';
+            }
+        }
+        
+        // Chat login form
+        const chatLoginForm = document.getElementById('chatLoginForm');
+        
+        if (chatLoginForm) {
+            chatLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nama = document.getElementById('chatNama').value.trim();
+                const kelas = document.getElementById('chatKelas').value;
+                
+                if (!nama || !kelas) {
+                    showToast('Harap isi semua data dengan benar!', 'error');
+                    return;
+                }
+                
+                const chatUser = {
+                    id: Date.now(),
+                    nama: nama,
+                    kelas: kelas,
+                    lastActive: Date.now()
+                };
+                
+                currentChatUser = chatUser;
+                localStorage.setItem('currentChatUser', JSON.stringify(chatUser));
+                
+                const existingUserIndex = chatUsers.findIndex(u => u.nama === nama && u.kelas === kelas);
+                if (existingUserIndex === -1) {
+                    chatUsers.push(chatUser);
+                } else {
+                    chatUsers[existingUserIndex].lastActive = Date.now();
+                }
+                localStorage.setItem('chatUsers', JSON.stringify(chatUsers));
+                
+                setupChat();
+                showToast(`Selamat datang di chat global, ${nama}!`, 'success');
+                chatLoginForm.reset();
+            });
+        }
+        
+        // Load chat messages dengan tombol hapus
+        function loadChatMessages() {
+            const messagesContainer = document.getElementById('messagesContainer');
+            const recentMessages = chatMessages.slice(-100);
+            
+            if (recentMessages.length === 0) {
+                messagesContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-comments" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                        <h3>Belum ada pesan</h3>
+                        <p>Mulailah percakapan dengan mengirim pesan pertama!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            messagesContainer.innerHTML = '';
+            
+            recentMessages.forEach(message => {
+                const messageElement = document.createElement('div');
+                const isCurrentUser = message.userId === currentChatUser.id;
+                messageElement.className = `message-bubble ${isCurrentUser ? 'sent' : 'received'}`;
+                
+                const time = new Date(message.timestamp).toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                let messageContent = '';
+                
+                if (!isCurrentUser) {
+                    messageContent += `<div class="message-sender">${message.nama} (${message.kelas})</div>`;
+                }
+                
+                messageContent += `<div>${message.content}</div>`;
+                messageContent += `<div class="message-time">${time}</div>`;
+                
+                if (isCurrentUser) {
+                    messageContent += `
+                        <div class="message-actions">
+                            <button class="message-action-btn" onclick="deleteMessage(${message.id})" title="Hapus pesan">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    `;
+                }
+                
+                messageElement.innerHTML = messageContent;
+                messagesContainer.appendChild(messageElement);
+            });
+            
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // ==================== FITUR HAPUS PESAN ====================
+        function deleteMessage(messageId) {
+            if (!currentChatUser) {
+                showToast('Anda harus login untuk menghapus pesan!', 'error');
+                return;
+            }
+            
+            const messageIndex = chatMessages.findIndex(msg => msg.id === messageId);
+            
+            if (messageIndex === -1) {
+                showToast('Pesan tidak ditemukan!', 'error');
+                return;
+            }
+            
+            const message = chatMessages[messageIndex];
+            
+            if (message.userId !== currentChatUser.id) {
+                showToast('Anda hanya bisa menghapus pesan Anda sendiri!', 'error');
+                return;
+            }
+            
+            if (confirm('Apakah Anda yakin ingin menghapus pesan ini?')) {
+                chatMessages.splice(messageIndex, 1);
+                localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+                
+                loadChatMessages();
+                
+                if (isLoggedIn) {
+                    updateDashboard();
+                }
+                
+                showToast('Pesan berhasil dihapus!', 'success');
+            }
+        }
+        
+        // Update online users count
+        function updateOnlineUsersCount() {
+            const now = Date.now();
+            const activeUsers = chatUsers.filter(user => 
+                (now - user.lastActive) < 5 * 60 * 1000
+            );
+            
+            document.getElementById('onlineCount').textContent = `${activeUsers.length} pengguna online`;
+            
+            if (currentChatUser) {
+                const userIndex = chatUsers.findIndex(u => u.id === currentChatUser.id);
+                if (userIndex !== -1) {
+                    chatUsers[userIndex].lastActive = now;
+                    localStorage.setItem('chatUsers', JSON.stringify(chatUsers));
+                }
+            }
+        }
+        
+        // Send message
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const chatMessageInput = document.getElementById('chatMessageInput');
+        
+        if (sendMessageBtn && chatMessageInput) {
+            sendMessageBtn.addEventListener('click', sendMessage);
+            chatMessageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        }
+        
+        function sendMessage() {
+            if (!currentChatUser) return;
+            
+            const content = chatMessageInput.value.trim();
+            
+            if (!content) {
+                showToast('Pesan tidak boleh kosong!', 'warning');
+                return;
+            }
+            
+            let containsBadWord = false;
+            badWords.forEach(word => {
+                if (content.toLowerCase().includes(word)) {
+                    containsBadWord = true;
+                }
+            });
+            
+            if (containsBadWord) {
+                showToast('Pesan mengandung kata-kata yang tidak pantas!', 'error');
+                return;
+            }
+            
+            const message = {
+                id: Date.now(),
+                userId: currentChatUser.id,
+                nama: currentChatUser.nama,
+                kelas: currentChatUser.kelas,
+                content: content,
+                timestamp: Date.now()
+            };
+            
+            chatMessages.push(message);
+            
+            if (chatMessages.length > 200) {
+                chatMessages = chatMessages.slice(-200);
+            }
+            
+            // Simpan ke localStorage - INI YANG MEMBUAT CHAT BISA DIGUNAKAN BERSAMA
+            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            
+            chatMessageInput.value = '';
+            loadChatMessages();
+            
+            const userIndex = chatUsers.findIndex(u => u.id === currentChatUser.id);
+            if (userIndex !== -1) {
+                chatUsers[userIndex].lastActive = Date.now();
+                localStorage.setItem('chatUsers', JSON.stringify(chatUsers));
+            }
+            
+            if (isLoggedIn) {
+                updateDashboard();
+            }
+        }
+        
+        // Auto-refresh untuk chat real-time - FIXED: Sekarang chat bisa real-time
+        let chatRefreshInterval;
+        function startChatAutoRefresh() {
+            if (chatRefreshInterval) {
+                clearInterval(chatRefreshInterval);
+            }
+            
+            chatRefreshInterval = setInterval(() => {
+                const latestMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+                
+                if (latestMessages.length !== chatMessages.length) {
+                    chatMessages = latestMessages;
+                    loadChatMessages();
+                    updateOnlineUsersCount();
+                } else if (currentChatUser) {
+                    const userIndex = chatUsers.findIndex(u => u.id === currentChatUser.id);
+                    if (userIndex !== -1) {
+                        chatUsers[userIndex].lastActive = Date.now();
+                        localStorage.setItem('chatUsers', JSON.stringify(chatUsers));
+                    }
+                }
+            }, 2000);
+        }
+        
+        window.addEventListener('beforeunload', function() {
+            if (chatRefreshInterval) {
+                clearInterval(chatRefreshInterval);
+            }
+        });
+        
+        // ==================== UTILITY FUNCTIONS ====================
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.innerHTML = '';
+            
+            let icon = 'fas fa-info-circle';
+            if (type === 'success') icon = 'fas fa-check-circle';
+            if (type === 'error') icon = 'fas fa-exclamation-circle';
+            if (type === 'warning') icon = 'fas fa-exclamation-triangle';
+            
+            toast.innerHTML = `<i class="${icon}"></i> ${message}`;
+            toast.className = `toast ${type} show`;
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+        
+        // ==================== INITIALIZE PAGE ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isLoggedIn && currentUser) {
+                showSection('dashboard');
+            }
+            
+            setTimeout(() => {
+                showToast('Selamat datang di Website Aspirasi OSIS SMPN 10 Magelang!', 'info');
+            }, 1000);
+            
+            // Demo chat messages untuk testing
+            if (chatMessages.length === 0) {
+                const demoMessages = [
+                    {
+                        id: 1,
+                        userId: 999,
+                        nama: "Admin OSIS",
+                        kelas: "OSIS",
+                        content: "Selamat datang di Chat Global SMPN 10 Magelang!",
+                        timestamp: Date.now() - 3600000
+                    },
+                    {
+                        id: 2,
+                        userId: 998,
+                        nama: "Siswa Contoh",
+                        kelas: "8A",
+                        content: "Halo semua! Bagaimana hari ini?",
+                        timestamp: Date.now() - 1800000
+                    }
+                ];
+                chatMessages.push(...demoMessages);
+                localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            }
+        });
+    </script>
+</body>
+</html>
